@@ -35,7 +35,11 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                             .padding()
                     }
-                    .transition(.scale(scale: 0, anchor: .bottom))
+//                    .transition(.scale(scale: 0, anchor: .bottom))
+//                    .transition(.offset(x: -600,y:0))
+//                    .transition(.offset(x: -600,y:0).combined(with: .scale))
+//                    .transition(.offset(x: -600,y:0).combined(with: .scale).combined(with: .opacity))
+                    .transition(.offsetScaleOpacity)
             }
             
         }
@@ -45,6 +49,11 @@ struct ContentView: View {
                 self.showDetail.toggle()
             }
         }
+    }
+}
+extension AnyTransition {
+    static var offsetScaleOpacity : AnyTransition {
+        AnyTransition.offset(x: -600,y:0).combined(with: .scale).combined(with: opacity)
     }
 }
 
