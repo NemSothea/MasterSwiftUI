@@ -35,6 +35,7 @@ struct ContentView: View {
                             .foregroundStyle(.white)
                             .padding()
                     }
+                    .transition(.scale(scale: 0, anchor: .bottom))
             }
             
         }
